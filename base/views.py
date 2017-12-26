@@ -13,6 +13,8 @@ from django.views.generic.edit import FormView
 
 from users.forms import LoginForm
 
+from django.http import JsonResponse
+
 User = get_user_model()
 
 
@@ -27,6 +29,19 @@ class IndexView(TemplateView):
         context = {}
         self.form = LoginForm(request.POST or None)
 
+        if request.is_ajax():
+            user_email = request.POST['email']
+            user_password = request.POST['password']
+            username = User.objects.get(email=user_email).username
+            user = authenticate(username=username, password=user_password)
+            auth_login(request, user)
+            context['authenticated'] = request.user.is_authenticated()
+            if context['authenticated']:
+                context['username'] = request.user.username
+
+            print(context['authenticated'])
+            return JsonResponse(context)
+
         if request.POST and self.form.is_valid():
             user_email = request.POST['email']
             user_password = request.POST['password']
@@ -40,7 +55,7 @@ class IndexView(TemplateView):
 
         context.update({'login_form': self.form,
                         'login_failed': 'true'})
-
+        print(context['authenticated'])
         return render(request, self.template_name, context)
 
 

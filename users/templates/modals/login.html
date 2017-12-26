@@ -4,7 +4,7 @@
     <div class="modal-content">
         <div class="modal-body">
             <div class="white_pointer"></div>
-            <form class="test" method="POST" action="{% url 'index' %}" novalidate="novalidate">
+            <form id="loginForm" class="test" method="POST" action="" novalidate="novalidate">
                 {% csrf_token %}
                 {% if form %}
                     {% for error in login_form.non_field_errors %}
@@ -12,12 +12,13 @@
                             <li>{{ error }}</li>
                         </ul>
                     {% endfor %}
-                {{ login_form.email.errors }}
+
                 <label>{{ login_form.email.label }}</label>
                 {{ login_form.email }}
-                {{ login_form.password.errors}}
+                {{ login_form.email.errors }}
                 <label>{{ login_form.password.label }}</label>
                 {{ login_form.password }}
+                {{ login_form.password.errors }}
                 <a id="forgot-password" href="{% url 'auth_password_reset' %}">{% trans "Forgot my password" %}</a>
                 <input id="id_do_login" class="" type="submit" value="{% trans 'Login' %}"></input>
                 {% endif %}
