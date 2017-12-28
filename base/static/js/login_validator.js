@@ -1,5 +1,6 @@
 $(document).ready(function () {
     $('#loginForm').submit(function (){
+        console.log("Entro");
         return send_data();
     });
 });
@@ -8,14 +9,15 @@ $(document).ready(function () {
 function send_data() {
     $.ajax(
         {
-            url: "{% url 'index' %}",
+            url: "valid_login/",
             dataType: "json",
             data: $('#loginForm').serialize(),
-            type: "GET",
+            type: "POST",
         })
         .done(function (context) {
 
-            alert(context['authenticated']);
+            alert("entro");
+            return false;
         })
         /**
          * jqXHR: Representa a la respuesta enviada del servidor.

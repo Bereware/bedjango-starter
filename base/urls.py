@@ -9,6 +9,7 @@ from . import views
 urlpatterns = [
     url(r'^', include('users.urls')),
     url(r'^$', views.IndexView.as_view(), name='index'),
+    url(r'^valid_login/$', views.IndexView.as_view(), name='valid_login'),
     url(r'^contact/$', views.ContactView.as_view(), name='contact'),
     url(r'^lists/$', views.ListsView.as_view(), name='lists'),
     url(r'^panels/$', views.PanelsView.as_view(), name='panels'),
