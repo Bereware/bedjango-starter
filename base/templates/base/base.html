@@ -29,11 +29,11 @@
     <script src="{% static 'js/bootstrap-table.min.js' %}" charset="utf-8"></script>
     <script src="{% static 'js/bootstrap-table-locale-all.min.js' %}" charset="utf-8"></script>
     <script src="{% static 'js/svg-changer.js' %}" charset="utf-8"></script>
-    <script src="{% static 'js/login_validator.js' %}" type="text/javascript" charset="utf-8"></script>
+{#    <script src="{% static 'js/login_validator.js' %}" type="text/javascript" charset="utf-8"></script>#}
     <script src="{% static 'js/modal_position.js' %}" type="text/javascript" charset="utf-8"></script>
     <script src="{% static 'js/cookielaw.js'%}" charset="utf-8"></script>
     {% if login_failed %}
-    <script src="{% static 'js/modal_appear.js' %}" charset="utf-8"></script>
+{#    <script src="{% static 'js/modal_appear.js' %}" charset="utf-8"></script>#}
     {% endif %}
     {% block extra_js %}
     {% endblock extra_js %}
@@ -60,5 +60,31 @@
     {% include "modals/login.html" with form=login_form %}
 {% endif %}
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script>
+        $('#loginForm').submit(function () {
+
+            return $.ajax({
+                type: "POST",
+                url: "valid_login/",
+                data: {'email': $('#id_email').val(),'password': $('#id_password').val(), 'csrfmiddlewaretoken': '{{csrf_token}}'},
+                dataType: "text",
+                success: function (response) {
+
+                    var response = $.parseJSON(response);
+                    if (response.success) {
+                        return true;
+                    }
+                    else {
+                        alert(response.error);
+                        return false;
+                    }
+                },
+                error: function (rs, e) {
+                    alert(rs.responseText);
+                    return false;
+                }
+            });
+        });
+    </script>
 </body>
 </html>

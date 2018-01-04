@@ -13,7 +13,8 @@ from django.views.generic.edit import FormView
 
 from users.forms import LoginForm
 
-from django.http import JsonResponse
+from django.http import HttpResponse, JsonResponse
+import json
 
 User = get_user_model()
 
@@ -46,26 +47,30 @@ class IndexView(TemplateView):
 
         return render(request, self.template_name, context)
 
-def valid_login(self, request):
+def valid_login(request):
     context = {}
-    self.form = LoginForm(request.POST or None)
-
-    if request.POST and self.form.is_valid() and request.is_ajax():
+    error = ''
+    success = False
+    if request.method == 'POST':
         user_email = request.POST['email']
         user_password = request.POST['password']
-        username = User.objects.get(email=user_email).username
-        user = authenticate(username=username, password=user_password)
-        auth_login(request, user)
-        context['authenticated'] = request.user.is_authenticated()
+        try:
+            username = User.objects.get(email=user_email).username
+            user = authenticate(username=username, password=user_password)
 
-        if context['authenticated']:
-            context['username'] = request.user.username
-            return redirect('home')
+            auth_login(request, user)
+            context['authenticated'] = request.user.is_authenticated()
 
-    context.update({'login_form': self.form,
-                    'login_failed': 'true'})
+            if context['authenticated'] == False:
+                error = ('Sorry, No matches or does not exist')
+            else:
+                success = True
+        except:
+            error = ('Sorry, Not exist')
 
-    return JsonResponse(context)
+
+    ajax_vars = {'success': success, 'error': error}
+    return HttpResponse(json.dumps(ajax_vars), content_type='application/javascript')
 
 
 class ContactView(FormView):
