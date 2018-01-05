@@ -49,29 +49,33 @@ class IndexView(TemplateView):
 
 def valid_login(request):
     context = {}
-    error = ''
+    error = None
     success = False
     if request.method == 'POST':
         user_email = request.POST['email']
         user_password = request.POST['password']
-        try:
+
+        if User.objects.filter(email=user_email).exists():
+
             username = User.objects.get(email=user_email).username
             user = authenticate(username=username, password=user_password)
+            print(username)
+            print(user_password)
+            print(user)
 
             auth_login(request, user)
-            context['authenticated'] = request.user.is_authenticated()
 
-            if context['authenticated'] == False:
-                error = ('Sorry, No matches or does not exist')
-            else:
-                success = True
-        except:
+        else:
             error = ('Sorry, Not exist')
 
+        context['authenticated'] = request.user.is_authenticated()
+        if context['authenticated']:
+            success = True
+        else:
+            error = ('Sorry, No matches or does not exist')
 
     ajax_vars = {'success': success, 'error': error}
     return HttpResponse(json.dumps(ajax_vars), content_type='application/javascript')
-
 
 class ContactView(FormView):
     template_name = 'base/contact.html'

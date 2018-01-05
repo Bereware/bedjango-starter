@@ -61,26 +61,26 @@
 {% endif %}
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script>
-        $('#loginForm').submit(function () {
+        $('#loginForm').submit(function (event) {
+            event.preventDefault();
 
-            return $.ajax({
+            $.ajax({
                 type: "POST",
                 url: "valid_login/",
                 data: {'email': $('#id_email').val(),'password': $('#id_password').val(), 'csrfmiddlewaretoken': '{{csrf_token}}'},
                 dataType: "text",
                 success: function (response) {
-
                     var response = $.parseJSON(response);
+
                     if (response.success) {
-                        return true;
-                    }
-                    else {
-                        alert(response.error);
-                        return false;
+                        $('#loginForm').submit;
+                    }else{
+                        $('#id_email').val('');
+                        $('#id_password').val('');
                     }
                 },
                 error: function (rs, e) {
-                    alert(rs.responseText);
+                    alert(e)
                     return false;
                 }
             });
