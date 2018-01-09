@@ -59,10 +59,6 @@ def valid_login(request):
 
             username = User.objects.get(email=user_email).username
             user = authenticate(username=username, password=user_password)
-            print(username)
-            print(user_password)
-            print(user)
-
             auth_login(request, user)
 
         else:
