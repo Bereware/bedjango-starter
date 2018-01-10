@@ -22,6 +22,7 @@ var gulp            = require('gulp'),
 var hosts = 'bedjango-project';
 
 // Paths
+var path = 'localhost';
 
 var srcAssets = {
   styles    : 'src/sass/'
@@ -180,24 +181,30 @@ gulp.task('watch', function(){
 
 // Browser Sync
 gulp.task('browsersync', function() {
-  browserSync.init({
-    proxy: {
-        target: hosts,
-        ws: false
+    var openPath = 'local';
+    if(process.h){
+        path = process.h;
+        openPath = 'external';
+        console.log( color.green(path) +' configured as new hosts.'.yellow);
     }
-  });
-  gulp.watch(srcAssets.styles + '**/*.s+(a|c)ss', ['styles:dev'])
-  .on('change', function(event) {
-    console.log('');
-    console.log('-> File ' + event.path.magenta.bold + ' was ' + event.type.green + ', running tasks...');
-    browserSync.reload();
-  });
-  gulp.watch(distAssets.js + '**/*.js', ['jshint'])
-  .on('change', function(event) {
-    console.log('');
-    console.log('-> File ' + event.path.yellow + ' was ' + event.type.green + ', running tasks...');
-    browserSync.reload();
-  });
+
+    browserSync.init({
+        host: path,
+        open: openPath,
+        proxy: path
+    });
+    gulp.watch(srcAssets.styles + '**/*.s+(a|c)ss', ['styles:dev'])
+        .on('change', function(event) {
+            console.log('');
+            console.log('-> File ' + event.path.magenta.bold + ' was ' + event.type.green + ', running tasks...');
+            browserSync.reload();
+        });
+    gulp.watch(distAssets.js + '**/*.js', ['jshint'])
+        .on('change', function(event) {
+            console.log('');
+            console.log('-> File ' + event.path.yellow + ' was ' + event.type.green + ', running tasks...');
+            browserSync.reload();
+        });
 });
 
 /************** TIME TO WORK ***********************/
