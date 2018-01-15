@@ -1,5 +1,7 @@
 from base.forms import ContactForm
 
+from django.utils.translation import ugettext_lazy as _
+
 from django.conf import settings
 from django.contrib.auth import authenticate
 from django.contrib.auth import get_user_model
@@ -62,13 +64,13 @@ def valid_login(request):
             auth_login(request, user)
 
         else:
-            error = ('Sorry, Not exist')
+            error = _('Email dont exit')
 
         context['authenticated'] = request.user.is_authenticated()
         if context['authenticated']:
             success = True
         else:
-            error = ('Sorry, No matches or does not exist')
+            error = _('Sorry, No matches or does not exist')
 
     ajax_vars = {'success': success, 'error': error}
     return HttpResponse(json.dumps(ajax_vars), content_type='application/javascript')

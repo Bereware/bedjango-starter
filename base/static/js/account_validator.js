@@ -4,6 +4,7 @@ $(document).ready(function(){
         var re = /^[a-zA-Z0-9]+([-_\.][a-zA-Z0-9]+)*[a-zA-Z0-9]$/;
         return re.test(username);
     }
+
     function validateEmail(email) {
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{3,}))$/;
         return re.test(email);
@@ -23,7 +24,6 @@ $(document).ready(function(){
             $('#id_register').attr('disabled', 'true');
         }
     }
-
 
     $('#id_register').addClass('disabled');
     $('#id_register').attr('disabled', 'true');

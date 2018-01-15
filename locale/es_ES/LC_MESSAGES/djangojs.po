@@ -1,0 +1,166 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#: base/static/node_modules/ajv/dist/regenerator.min.js:25
+#: base/static/node_modules/ajv/dist/regenerator.min.js:26
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-15 14:57+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: base/static/js/account_validator.js:42
+msgid "Username is valid"
+msgstr ""
+
+#: base/static/js/account_validator.js:52
+msgid "Please write a valid username"
+msgstr ""
+
+#: base/static/js/account_validator.js:66
+msgid "Email valid"
+msgstr ""
+
+#: base/static/js/account_validator.js:76
+msgid "Email is not valid"
+msgstr ""
+
+#: base/static/js/account_validator.js:91
+msgid "Password validdasasdasdasd"
+msgstr ""
+
+#: base/static/js/account_validator.js:106
+msgid "Please write a valid password"
+msgstr ""
+
+#: base/static/js/account_validator.js:123
+#: base/static/js/change_password_validator.js:74
+#: base/static/js/new_password_validator.js:62
+msgid "Passwords are correct"
+msgstr ""
+
+#: base/static/js/account_validator.js:133
+#: base/static/js/change_password_validator.js:84
+#: base/static/js/new_password_validator.js:72
+msgid "Passwords doesn't match"
+msgstr ""
+
+#: base/static/js/login_validator.js:28
+msgid "Email is empty"
+msgstr ""
+
+#: base/static/node_modules/ajv/dist/regenerator.min.js:25
+#: base/static/node_modules/ajv/dist/regenerator.min.js:26
+msgid " "
+msgstr ""
+
+#: base/static/node_modules/ajv/dist/regenerator.min.js:25
+#: base/static/node_modules/ajv/dist/regenerator.min.js:26
+msgid "."
+msgstr ""
+
+#: base/static/node_modules/ajv/dist/regenerator.min.js:26
+msgid "*"
+msgstr ""
+
+#: base/static/node_modules/ajv/dist/regenerator.min.js:26
+msgid "import"
+msgstr ""
+
+#: base/static/node_modules/ajv/dist/regenerator.min.js:26
+msgid "{}"
+msgstr ""
+
+#: base/static/node_modules/ajv/dist/regenerator.min.js:26
+msgid ", "
+msgstr ""
+
+#: base/static/node_modules/ajv/dist/regenerator.min.js:26
+msgid "this"
+msgstr ""
+
+#: base/static/node_modules/ajv/dist/regenerator.min.js:26
+msgid "super"
+msgstr ""
+
+#: base/static/node_modules/ajv/dist/regenerator.min.js:26
+msgid "null"
+msgstr ""
+
+#: base/static/node_modules/ajv/dist/regenerator.min.js:26
+msgid ",\n"
+msgstr ""
+
+#: base/static/node_modules/ajv/dist/regenerator.min.js:26
+msgid " = "
+msgstr ""
+
+#: base/static/node_modules/ajv/dist/regenerator.min.js:26
+msgid "\n"
+msgstr ""
+
+#: base/static/node_modules/ajv/dist/regenerator.min.js:26
+msgid "debugger;"
+msgstr ""
+
+#: base/static/node_modules/ajv/dist/regenerator.min.js:26
+msgid ":"
+msgstr ""
+
+#: base/static/node_modules/ajv/dist/regenerator.min.js:26
+msgid "empty"
+msgstr ""
+
+#: base/static/node_modules/ajv/dist/regenerator.min.js:26
+msgid "any"
+msgstr ""
+
+#: base/static/node_modules/ajv/dist/regenerator.min.js:26
+msgid "mixed"
+msgstr ""
+
+#: base/static/node_modules/ajv/dist/regenerator.min.js:26
+msgid "boolean"
+msgstr ""
+
+#: base/static/node_modules/ajv/dist/regenerator.min.js:26
+msgid "interface "
+msgstr ""
+
+#: base/static/node_modules/ajv/dist/regenerator.min.js:26
+msgid " & "
+msgstr ""
+
+#: base/static/node_modules/ajv/dist/regenerator.min.js:26
+msgid "number"
+msgstr ""
+
+#: base/static/node_modules/ajv/dist/regenerator.min.js:26
+msgid "string"
+msgstr ""
+
+#: base/static/node_modules/ajv/dist/regenerator.min.js:26
+msgid "typeof "
+msgstr ""
+
+#: base/static/node_modules/ajv/dist/regenerator.min.js:26
+msgid " | "
+msgstr ""
+
+#: base/static/node_modules/ajv/dist/regenerator.min.js:26
+msgid "void"
+msgstr ""
+
+#: base/static/node_modules/browser-sync-ui/public/js/app.js:6
+msgid "ngSrc,ngSrcset,src,srcset"
+msgstr ""
